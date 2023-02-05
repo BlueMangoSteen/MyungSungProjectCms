@@ -30,7 +30,7 @@ const StatisticSample = ({ data }: IStatisticSampleProps) => {
     <>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         <div className="p-5 border rounded-lg ">
-          <div>방문자</div>
+          <div>학생 수</div>
           <div className="mt-3">
             <div className="flex items-center mt-3">
               <div className="text-2xl font-semibold grow">

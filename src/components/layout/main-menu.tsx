@@ -12,17 +12,17 @@ const mainMenuData: IMenu[] = [
     },
   },
   {
-    name: "샘플 페이지",
+    name: "학생 관리",
     icon: <List className="w-5 h-5" />,
     submenu: [
       {
-        name: "프로필",
+        name: "학생 등록",
         link: {
           path: "/sample/profile",
         },
       },
       {
-        name: "패키지 목록",
+        name: "학생 목록",
         link: {
           path: "/sample/list",
           query: {
@@ -31,7 +31,7 @@ const mainMenuData: IMenu[] = [
         },
       },
       {
-        name: "사용자관리",
+        name: "학생 상세 정보",
         link: {
           path: "/sample/manage/user",
         },
@@ -42,7 +42,7 @@ const mainMenuData: IMenu[] = [
 
 const devMenuData: IMenu[] = [
   {
-    name: "사용 가이드",
+    name: "클래스 관리",
     icon: <Monitor className="w-5 h-5" />,
     submenu: [
       {
@@ -60,14 +60,14 @@ const MainMenu = () => {
     <>
       <>
         <Divider orientation="left" plain>
-          메인
+          학생
         </Divider>
 
         <Menu data={mainMenuData} />
       </>
       <>
         <Divider orientation="left" plain>
-          개발
+          수업
         </Divider>
 
         <Menu data={devMenuData} />

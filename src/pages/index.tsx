@@ -4,6 +4,7 @@ import CalendarSample from "@/components/page/index/calendar-sample";
 import StatisticSample from "@/components/page/index/statistic-sample";
 import { useAuth } from "@/lib/auth/auth-provider";
 import { Divider, Skeleton } from "antd";
+import twStyledComponent from "tailwind-styled-components";
 
 const pageHeader: IPageHeader = {
   title: "Welcome",
@@ -15,9 +16,11 @@ const IndexPage: IDefaultLayoutPage = () => {
 
   return (
     <>
-      <div className="text-xl">👋 {session.user.name || "관리자"}님 안녕하세요!</div>
+      <MainPageSubTitle className="text-xl">
+        👋 {session.user.name || "관리자"}님 안녕하세요! 행복한 하루 보내세요
+      </MainPageSubTitle>
 
-      <div className="mt-5">{data ? <StatisticSample data={data} /> : <Skeleton />}</div>
+      <MainPageStatistic className="mt-5">{data ? <StatisticSample data={data} /> : <Skeleton />}</MainPageStatistic>
 
       <Divider />
 
@@ -33,3 +36,11 @@ IndexPage.getLayout = getDefaultLayout;
 IndexPage.pageHeader = pageHeader;
 
 export default IndexPage;
+
+const MainPageSubTitle = twStyledComponent.div`
+  text-xl
+`;
+
+const MainPageStatistic = twStyledComponent.div`
+  mt-5
+`;
