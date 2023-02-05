@@ -4,6 +4,7 @@ import { ChevronDown, LogOut, User } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React, { useCallback } from "react";
+import twStyledComponent from "tailwind-styled-components";
 
 const Profile = () => {
   const { session } = useAuth();
@@ -34,15 +35,34 @@ const Profile = () => {
 
   return (
     <>
-      <div className="ml-2">Administrator</div>
+      <UserRole>관리자</UserRole>
       <Dropdown menu={{ items }} trigger={["click"]}>
-        <button className="flex items-center px-2 text-gray-600 rounded hover:bg-gray-200 enable-transition">
-          <span className="sm:max-w-[10rem] ellipsis-text">{session.user.login}</span>
+        <DropdownButton>
+          <UserId>{session.user.login}</UserId>
           <ChevronDown className="w-5 h-5" />
-        </button>
+        </DropdownButton>
       </Dropdown>
     </>
   );
 };
 
 export default React.memo(Profile);
+
+const UserRole = twStyledComponent.div`
+  ml-2
+`;
+
+const DropdownButton = twStyledComponent.button`
+  flex 
+  items-center 
+  px-2 
+  text-gray-600 
+  rounded 
+  hover:bg-gray-200 
+  enable-transition    
+`;
+
+const UserId = twStyledComponent.span`
+  sm:max-w-[10rem] 
+  ellipsis-text  
+`;
